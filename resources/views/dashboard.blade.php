@@ -15,7 +15,7 @@
                         </h2>
                         <div class="col-4 justify-center mt-8 flex lg:mt-0 lg:flex-shrink-0">
                             <div class="inline-flex rounded-md shadow">
-                                <a href="#"
+                                <a href="{{ route('loan-com') }}"
                                     class="btn btn-primary  px-5 py-3 border border-transparent text-base font-medium rounded-md bg-indigo-600 hover:bg-indigo-700">
                                     Choose </a>
                             </div>
@@ -28,7 +28,7 @@
                         </h2>
                         <div class="col-4 justify-center mt-8 flex lg:mt-0 lg:flex-shrink-0">
                             <div class="inline-flex rounded-md shadow">
-                                <a href="#"
+                                <a href="{{ route('loan-iskan') }}"
                                     class="btn btn-primary  px-5 py-3 border border-transparent text-base font-medium rounded-md bg-indigo-600 hover:bg-indigo-700">
                                     Choose </a>
                             </div>
@@ -41,7 +41,7 @@
                         </h2>
                         <div class="col-4 justify-center mt-8 flex lg:mt-0 lg:flex-shrink-0">
                             <div class="inline-flex rounded-md shadow">
-                                <a href="#"
+                                <a href="{{ route('loan-car') }}"
                                     class="btn btn-primary  px-5 py-3 border border-transparent text-base font-medium rounded-md bg-indigo-600 hover:bg-indigo-700">
                                     Choose </a>
                             </div>

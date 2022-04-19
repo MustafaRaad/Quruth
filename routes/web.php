@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LoanController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +14,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/loans', function () {
-    return view('loans-list');
-})->middleware(['auth'])->name('loans');
+Route::resource('loans', LoanController::class);
+
+
+// Route::get('/loans', function () {
+//     return view('loans-list');
+// })->middleware(['auth'])->name('loans');
+
+Route::get('/loan-type/loan-com', function () {
+    return view('loan-category.loan-commercial');
+})->name('loan-com');
+
+Route::get('/loan-type/loan-car', function () {
+    return view('loan-category.loan-car');
+})->name('loan-car');
+
+Route::get('/loan-type/loan-iskan', function () {
+    return view('loan-category.loan-iskan');
+})->name('loan-iskan');
+// -------------
+Route::get('/guest-type/guest-com', function () {
+    return view('guest-category.guest-commercial');
+});
+
+Route::get('/guest-type/guest-car', function () {
+    return view('guest-category.guest-car');
+});
+
+Route::get('/guest-type/guest-iskan', function () {
+    return view('guest-category.guest-iskan');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
