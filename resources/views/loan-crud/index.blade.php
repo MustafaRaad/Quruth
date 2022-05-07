@@ -31,20 +31,39 @@
                                     <th scope="col">Credit card name</th>
                                     <th scope="col">Created at</th>
                                     <th scope="col">Action</th>
+                                    <th scope="col">Accepted ?</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($loans as $loan)
+                                @if($loan->user_id == Auth::id())
                                 <tr>
                                     <td>{{ $loan->f_name }} {{ $loan->l_name }}</td>
                                     <td>{{ $loan->loan_type }}</td>
                                     <td>{{ $loan->credit_card_type }}</td>
                                     <td>{{ $loan->credit_card_name }}</td>
-                                    <td>{{ $loan->created_at }}</td>
+                                    <td>{{$loan->created_at }}</td>
                                     <td><a href="{{ route('loans.show', $loan->id) }}"
                                             class="btn btn-warning btn-sm">Show</a>
-                                        <a href="{{ route('loans.edit', $loan->id) }}"
-                                            class="btn btn-info btn-sm">Edit</a>
+                                        {{-- <a href="{{ route('loans.edit', $loan->id) }}"
+                                            class="btn btn-info btn-sm">Edit</a> --}}
+                                    </td>
+                                    <td>
+                                        <?php
+if($loan->is_accepted == true ){
+    ?>
+                                        <h5 class="text-primary">&#x2611;</h5>
+                                        <?php
+}
+else {
+    ?>
+                                        <h4 class="text-danger">
+                                            &#x2612;
+                                        </h4>
+                                        <?php
+
+}
+                                        ?>
                                     </td>
                                     {{-- {!! Form::open(['method' => 'DELETE','route' => ['users.destroy',
                                     $user->id],'style'=>'display:inline']) !!}
@@ -52,6 +71,7 @@
                                     {!! Form::close() !!} --}}
                                     </td>
                                 </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>

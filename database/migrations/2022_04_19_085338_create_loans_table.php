@@ -15,6 +15,9 @@ class CreateLoansTable extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            // $table->foreignId('users')->constrained();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('f_name');
             $table->string('l_name');
             $table->timestamp('birthdate');
@@ -28,6 +31,7 @@ class CreateLoansTable extends Migration
             $table->string('credit_card_name')->nullable();
             $table->timestamp('credit_card_expire')->nullable();
             $table->string('credit_card_monthly_income')->nullable();
+            $table->boolean('is_accepted')->default(0);
 
             $table->timestamps();
         });

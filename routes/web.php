@@ -45,8 +45,13 @@ Route::get('/guest-type/guest-iskan', function () {
     return view('guest-category.guest-iskan');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+Route::group(['middleware'=>['auth']], function(){
+    Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
+}
+);
 
 require __DIR__ . '/auth.php';

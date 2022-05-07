@@ -75,6 +75,7 @@
                             <input type="text" class="form-control" id="credit_card_monthly_income"
                                 name="credit_card_monthly_income">
                         </div>
+                        <input type="text" name="user_id" value="{{Auth::id()}}" hidden>
                         <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
