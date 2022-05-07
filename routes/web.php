@@ -15,6 +15,11 @@ use Illuminate\Http\Request;
 */
 
 Route::resource('loans', LoanController::class);
+Route::resource('admin', AdminController::class);
+
+// Route::get('/admin-list', function () {
+//     return view('admin.list');
+// })->name('admin-list');
 
 
 // Route::get('/loans', function () {

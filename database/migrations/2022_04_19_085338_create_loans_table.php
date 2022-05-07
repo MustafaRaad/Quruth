@@ -20,7 +20,7 @@ class CreateLoansTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('f_name');
             $table->string('l_name');
-            $table->timestamp('birthdate');
+            $table->date('birthdate');
             $table->string('place');
             $table->string('phone');
             $table->string('nat_id');
@@ -29,7 +29,7 @@ class CreateLoansTable extends Migration
             $table->string('loan_type');
             $table->string('credit_card')->nullable();
             $table->string('credit_card_name')->nullable();
-            $table->timestamp('credit_card_expire')->nullable();
+            $table->date('credit_card_expire')->nullable();
             $table->string('credit_card_monthly_income')->nullable();
             $table->boolean('is_accepted')->default(0);
 

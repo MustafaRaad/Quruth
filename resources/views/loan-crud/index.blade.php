@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                                 @foreach($loans as $loan)
-                                @if($loan->user_id == Auth::id())
+                                @if($loan->user_id == Auth::id() | Auth::user()->hasRole('admin'))
                                 <tr>
                                     <td>{{ $loan->f_name }} {{ $loan->l_name }}</td>
                                     <td>{{ $loan->loan_type }}</td>
@@ -45,18 +45,20 @@
                                     <td>{{$loan->created_at }}</td>
                                     <td><a href="{{ route('loans.show', $loan->id) }}"
                                             class="btn btn-warning btn-sm">Show</a>
-                                        {{-- <a href="{{ route('loans.edit', $loan->id) }}"
-                                            class="btn btn-info btn-sm">Edit</a> --}}
+                                        @role('admin')
+                                        <a href="{{ route('loans.edit', $loan->id) }}"
+                                            class="btn btn-info btn-sm">Edit</a>
+                                        @endrole
                                     </td>
                                     <td>
                                         <?php
-if($loan->is_accepted == true ){
-    ?>
+                                        if($loan->is_accepted == true ){
+                                            ?>
                                         <h5 class="text-primary">&#x2611;</h5>
                                         <?php
-}
-else {
-    ?>
+                                        }
+                                        else {
+                                            ?>
                                         <h4 class="text-danger">
                                             &#x2612;
                                         </h4>
