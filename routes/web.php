@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoanController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\LoansGuestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,7 @@ use Illuminate\Http\Request;
 */
 
 Route::resource('loans', LoanController::class);
-Route::resource('admin', AdminController::class);
+// Route::resource('admin', AdminController::class);
 
 // Route::get('/admin-list', function () {
 //     return view('admin.list');
@@ -42,9 +44,7 @@ Route::get('/guest-type/guest-com', function () {
     return view('guest-category.guest-commercial');
 });
 
-Route::get('/guest-type/guest-car', function () {
-    return view('guest-category.guest-car');
-});
+Route::get('/guest-type/guest-car', [LoansGuestController::class,'index']);
 
 Route::get('/guest-type/guest-iskan', function () {
     return view('guest-category.guest-iskan');
@@ -54,9 +54,11 @@ Route::get('/guest-type/guest-iskan', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-Route::group(['middleware'=>['auth']], function(){
-    Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
-}
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+    }
 );
 
 require __DIR__ . '/auth.php';

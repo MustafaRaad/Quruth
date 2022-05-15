@@ -11,41 +11,32 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <h1 class="display-6">Car buying loan details</h1>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam amet, dolore debitis delectus
-                        voluptatem dignissimos. Quo atque, odit eveniet sed nemo, quis similique, saepe consequatur
-                        quibusdam dolores inventore! Quod, molestiae.
 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam amet, dolore debitis delectus
-                        voluptatem dignissimos. Quo atque, odit eveniet sed nemo, quis similique, saepe consequatur
-                        quibusdam dolores inventore! Quod, molestiae.
-
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam amet, dolore debitis delectus
-                        voluptatem dignissimos. Quo atque, odit eveniet sed nemo, quis similique, saepe consequatur
-                        quibusdam dolores inventore! Quod, molestiae.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam amet, dolore debitis delectus
-                        voluptatem dignissimos. Quo atque, odit eveniet sed nemo, quis similique, saepe consequatur
-                        quibusdam dolores inventore! Quod, molestiae.
-                        <div class="w-full bg-white rounded-lg shadow-lg lg:w-1/3">
-                            <ul class="divide-y-2 divide-gray-100">
-                                <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
-                                    List Item 1
-                                </li>
-                                <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
-                                    List Item 2
-                                </li>
-                                <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
-                                    List Item 3
-                                </li>
-                                <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
-                                    List Item 4
-                                </li>
-                            </ul>
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                @foreach($LoansGuest as $category)
+                                <button class="nav-link" id="{{$category->name}}-tab" data-bs-toggle="tab"
+                                    data-bs-target="#{{$category->name}}" type="button" role="tab"
+                                    aria-controls="{{$category->name}}"
+                                    aria-selected="true">{{$category->name}}</button>
+                                @endforeach
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            @foreach($LoansGuest as $category)
+                            <div class="tab-pane fade show active" id="{{$category->name}}" role="tabpanel"
+                                aria-labelledby="{{$category->name}}-tab">{{$category->description}}</div>
+                            @endforeach
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+        </script>
     </div>
 </x-guest-layout>
