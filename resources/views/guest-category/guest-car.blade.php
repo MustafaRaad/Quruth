@@ -24,7 +24,7 @@
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
                             @foreach($LoansGuest as $category)
-                            <div class="tab-pane fade show active" id="{{$category->name}}" role="tabpanel"
+                            <div class="tab-pane fade show " id="{{$category->name}}" role="tabpanel"
                                 aria-labelledby="{{$category->name}}-tab">{{$category->description}}</div>
                             @endforeach
                         </div>
