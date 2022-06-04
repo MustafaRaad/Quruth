@@ -77,6 +77,7 @@ class LoanController extends Controller
     public function update(Request $request, Loan $loan)
     {
         $loan->update($request->all());
+        $loan->save();
         return redirect()->route('loans.index')
         ->with('success', 'product updated successflly');
     }

@@ -31,7 +31,7 @@ class CreateLoansTable extends Migration
             $table->string('credit_card_name')->nullable();
             $table->date('credit_card_expire')->nullable();
             $table->string('credit_card_monthly_income')->nullable();
-            $table->boolean('is_accepted')->default(0);
+            $table->string('is_accepted')->default(0);
 
             $table->timestamps();
         });

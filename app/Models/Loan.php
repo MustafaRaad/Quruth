@@ -17,6 +17,7 @@ class Loan extends Model
         'credit_card',
         'credit_card_name',
         'credit_card_expire',
-        'credit_card_monthly_income'
+        'credit_card_monthly_income',
+        'is_accepted'
     ];
 }
